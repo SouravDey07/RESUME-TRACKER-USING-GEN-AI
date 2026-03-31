@@ -39,7 +39,7 @@ async function loginUser(req,res)
     if(!isPasswordValid){
         return res.status(400).json({message:"Invalid password"})
     }
-    const token=jwt.sign({id:user._id,username:user.username},process.env.JWT_SECRET,{expiresIn:"1h"})
+    const token=jwt.sign({id:user._id,username:user.username},process.env.JWT_SECRET)
     res.cookie("token",token)
     res.status(200).json({message:"User logged in successfully",user:{id:user._id,username:user.username,email:user.email}})
 }
@@ -51,6 +51,11 @@ async function logoutUser(req,res){
         res.clearCookie("token")
         res.status(200).json({message:"User logged out successfully"})
 }
+async function getMeController(req,res){
+    const user=await userModel.findById(req.user.id)
+    
+    res.status(200).json({message:"User found successfully",user:{id:user._id,username:user.username,email:user.email}})
+}
     
 
-module.exports={registerUser,loginUser,logoutUser}
+module.exports={registerUser,loginUser,logoutUser,getMeController}
