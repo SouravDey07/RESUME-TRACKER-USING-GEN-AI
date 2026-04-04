@@ -7,21 +7,21 @@ export const AuthProvider=({children})=>{
     const [user,setUser]=useState(null);
     const [loading,setLoading]=useState(true); // Initial load state
 
-    useEffect(() => {
-        const verifyUser = async () => {
+    useEffect(()=>{
+        const getAndSetUser=async()=>{
             try {
-                const response = await getMe();
-                if (response && response.data && response.data.user) {
-                    setUser(response.data.user);
+                const data=await getMe();
+                if(data && data.data) {
+                    setUser(data.data.user);
                 }
-            } catch (error) {
-                console.log(error);
+            } catch(e) {
+                console.log(e);
             } finally {
-                setLoading(false); // Make sure to stop loading
+                setLoading(false);
             }
         }
-        verifyUser();
-    }, []);
+        getAndSetUser();
+    },[]);
 
     return (
         <authContext.Provider value={{user,setUser,loading,setLoading}}>
