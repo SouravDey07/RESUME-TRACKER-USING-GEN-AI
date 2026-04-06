@@ -11,7 +11,7 @@ function Register() {
   const handleSubmit=async(e)=>{
       e.preventDefault();
       const success = await handleRegister({username,email,password});
-      if(success) navigate("/");
+      if(success) navigate("/dashboard");
     }  
   return (
 
