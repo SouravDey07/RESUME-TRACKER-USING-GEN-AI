@@ -7,12 +7,17 @@
   box-sizing: border-box;
 }
 
-html,
-body,
+body {
+  width: 100%;
+  min-height: 100vh;
+  background-color: #1a1a1a;
+  color: rgba(255, 255, 255, 0.807);
+  font-family: 'Poppins', sans-serif;
+}
+
 #root {
   width: 100%;
   min-height: 100vh;
-  background-color: rgba(0, 0, 0, 0.529);
-  color: rgba(255, 255, 255, 0.807);
-  font-family: 'Poppins', sans-serif;
+  display: flex;
+  flex-direction: column;
 }

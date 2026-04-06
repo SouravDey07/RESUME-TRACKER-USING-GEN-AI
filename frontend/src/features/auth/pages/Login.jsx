@@ -17,11 +17,6 @@ function Login() {
           navigate("/");
       }
     }  
-    if(loading){
-      return <main>
-          <h1>Loading...</h1>
-      </main>
-    }
   return (
 
     
@@ -37,7 +32,9 @@ function Login() {
               <label htmlFor="password">Password</label>
               <input onChange={(e)=>setPassword(e.target.value)} type="password" id="password" name="password" placeholder='Enter your password' />
             </div>
-            <button className='button primary-button'>Login</button>
+            <button className='button primary-button' disabled={loading}>
+              {loading ? "Loading..." : "Login"}
+            </button>
         </form>
         <p>Don't have an account? <Link to="/register">Register</Link></p>
       </div>  

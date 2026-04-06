@@ -1,0 +1,490 @@
+$text-main: #f4f4f5;
+$text-muted: #a1a1aa;
+$bg-main: #141416; // Very dark background
+$bg-sidebar: #1c1c1f;
+$bg-card: #222225;
+$bg-hover: rgba(255, 255, 255, 0.05);
+$primary: #f472b6;       // Pinkish
+$primary-hover: #ec4899;
+$border: rgba(255, 255, 255, 0.1);
+$success: #4ade80;
+$danger: #f87171;
+$warning: #fbbf24;
+
+.interview-layout {
+  display: flex;
+  min-height: 100vh;
+  background-color: $bg-main;
+  color: $text-main;
+  font-family: 'Poppins', sans-serif;
+  
+  // -- Sidebar --
+  .sidebar {
+    width: 260px;
+    background-color: $bg-sidebar;
+    border-right: 1px solid $border;
+    display: flex;
+    flex-direction: column;
+    padding-top: 2rem;
+    
+    .logo {
+      padding: 0 1.5rem;
+      margin-bottom: 3rem;
+      display: flex;
+      flex-direction: column;
+      
+      .logo-title {
+        font-size: 1.1rem;
+        font-weight: 600;
+        letter-spacing: 2px;
+        color: $primary;
+      }
+      .logo-subtitle {
+        font-size: 0.65rem;
+        color: $text-muted;
+        letter-spacing: 1px;
+        margin-top: 0.2rem;
+      }
+    }
+    
+    .nav-item {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 1rem 1.5rem;
+      color: $text-muted;
+      font-size: 0.9rem;
+      font-weight: 500;
+      cursor: pointer;
+      border-left: 3px solid transparent;
+      transition: 0.2s;
+      
+      &:hover {
+        background-color: $bg-hover;
+        color: $text-main;
+      }
+      
+      &.active {
+        background-color: rgba(244, 114, 182, 0.05);
+        color: $primary;
+        border-left-color: $primary;
+      }
+    }
+
+    .bottom-nav {
+      margin-top: auto;
+      margin-bottom: 2rem;
+    }
+  }
+
+  // -- Main Content --
+  .main-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    
+    .top-header {
+      height: 70px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 2.5rem;
+      border-bottom: 1px solid $border;
+      
+      .search-bar {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        background-color: rgba(255, 255, 255, 0.03);
+        padding: 0.6rem 1rem;
+        border-radius: 2rem;
+        width: 350px;
+        color: $text-muted;
+        
+        input {
+          background: transparent;
+          border: none;
+          outline: none;
+          color: $text-main;
+          width: 100%;
+          font-family: inherit;
+          
+          &::placeholder {
+            color: $text-muted;
+          }
+        }
+      }
+      
+      .header-actions {
+        display: flex;
+        align-items: center;
+        gap: 1.5rem;
+        
+        .icon-btn {
+          background: none;
+          border: none;
+          color: $text-muted;
+          cursor: pointer;
+          &:hover { color: $text-main; }
+        }
+        
+        .profile-pic img {
+          width: 36px;
+          height: 36px;
+          border-radius: 50%;
+          border: 2px solid $border;
+        }
+      }
+    }
+
+    // -- Dashboard Content --
+    .dashboard-content {
+      padding: 2.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+      max-width: 1300px;
+      margin: 0 auto;
+      width: 100%;
+
+      .row {
+        display: flex;
+        gap: 2rem;
+      }
+
+      .card {
+        background-color: $bg-card;
+        border: 1px solid $border;
+        border-radius: 1rem;
+        padding: 1.5rem;
+        
+        .card-header {
+          display: flex;
+          align-items: center;
+          gap: 0.75rem;
+          margin-bottom: 1.5rem;
+          h3 {
+            font-size: 1.1rem;
+            font-weight: 500;
+          }
+        }
+      }
+
+      // -- Top Row --
+      .top-row {
+        .match-card {
+          flex: 0 0 320px;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          position: relative;
+          
+          .verified-badge {
+            position: absolute;
+            top: 1.5rem;
+            right: 1.5rem;
+            background: rgba(255,255,255,0.1);
+            font-size: 0.65rem;
+            padding: 0.2rem 0.5rem;
+            border-radius: 0.2rem;
+            letter-spacing: 1px;
+            color: $text-muted;
+          }
+
+          .circular-progress {
+            width: 180px;
+            height: 180px;
+            margin: 1rem 0;
+            
+            .circular-chart {
+              display: block;
+              margin: 0 auto;
+              max-width: 100%;
+              max-height: 250px;
+            }
+            .circle-bg {
+              fill: none;
+              stroke: rgba(255, 255, 255, 0.05);
+              stroke-width: 2.5;
+            }
+            .circle {
+              fill: none;
+              stroke-width: 2.5;
+              stroke-linecap: round;
+              stroke: $primary;
+              animation: progress 1s ease-out forwards;
+              filter: drop-shadow(0 0 8px rgba(244, 114, 182, 0.6));
+            }
+            .percentage {
+              fill: $text-main;
+              font-family: inherit;
+              font-size: 8px;
+              font-weight: 700;
+              text-anchor: middle;
+            }
+            .match-text {
+              fill: $text-muted;
+              font-size: 2px;
+              font-weight: 600;
+              letter-spacing: 0.5px;
+              text-anchor: middle;
+            }
+          }
+          
+          .match-info {
+            text-align: center;
+            h2 {
+              font-size: 1.25rem;
+              margin-bottom: 0.25rem;
+            }
+            p {
+              font-size: 0.85rem;
+              color: $text-muted;
+              line-height: 1.4;
+            }
+          }
+        }
+        
+        .report-card {
+          flex: 1;
+          .summary-text {
+            color: rgba(255, 255, 255, 0.85);
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 2rem;
+          }
+          
+          .feedback-columns {
+            display: flex;
+            gap: 3rem;
+            
+            .feedback-col {
+              flex: 1;
+              h4 {
+                display: flex;
+                align-items: center;
+                gap: 0.5rem;
+                font-size: 0.85rem;
+                letter-spacing: 1px;
+                margin-bottom: 1rem;
+              }
+              .strengths-title { color: $success; }
+              .growth-title { color: $danger; }
+              
+              ul {
+                list-style-type: disc;
+                padding-left: 1.2rem;
+                color: $text-muted;
+                font-size: 0.9rem;
+                line-height: 1.5;
+                li { margin-bottom: 0.75rem; }
+              }
+            }
+          }
+        }
+      }
+
+      // -- Middle Row --
+      .middle-row {
+        .gaps-card {
+          flex: 0 0 320px;
+          .gap-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 1.25rem;
+            
+            li {
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+              font-size: 0.9rem;
+              color: $text-main;
+              
+              .badge {
+                font-size: 0.65rem;
+                font-weight: 600;
+                padding: 0.2rem 0.6rem;
+                border-radius: 1rem;
+                letter-spacing: 0.5px;
+                &.high { background: rgba(248, 113, 113, 0.15); color: $danger; }
+                &.medium { background: rgba(251, 191, 36, 0.15); color: $warning; }
+                &.low { background: rgba(255, 255, 255, 0.1); color: $text-muted; }
+              }
+            }
+          }
+        }
+        
+        .questions-card {
+          flex: 1;
+          .tabs {
+            display: flex;
+            gap: 2rem;
+            margin-bottom: 1.5rem;
+            border-bottom: 1px solid $border;
+            
+            button {
+              background: none;
+              border: none;
+              color: $text-muted;
+              padding: 0.5rem 0;
+              font-size: 0.9rem;
+              font-weight: 500;
+              letter-spacing: 1px;
+              cursor: pointer;
+              position: relative;
+              
+              &.active {
+                color: $text-main;
+                &::after {
+                  content: '';
+                  position: absolute;
+                  bottom: -1px;
+                  left: 0;
+                  right: 0;
+                  height: 2px;
+                  background: $primary;
+                }
+              }
+            }
+          }
+          
+          .accordion {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            
+            .accordion-item {
+              background: rgba(255, 255, 255, 0.02);
+              border: 1px solid transparent;
+              border-radius: 0.75rem;
+              overflow: hidden;
+              
+              &.expanded {
+                border-color: $primary;
+                border-left: 3px solid $primary;
+              }
+              
+              .accordion-header {
+                padding: 1.25rem;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                cursor: pointer;
+                
+                h4 {
+                  font-size: 0.95rem;
+                  font-weight: 500;
+                  line-height: 1.4;
+                }
+                svg { color: $text-muted; }
+              }
+              
+              .accordion-body {
+                padding: 0 1.25rem 1.25rem;
+                
+                h5 {
+                  font-size: 0.7rem;
+                  letter-spacing: 1px;
+                  color: $text-muted;
+                  margin-bottom: 0.5rem;
+                }
+                p {
+                  font-size: 0.85rem;
+                  color: rgba(255, 255, 255, 0.85);
+                  line-height: 1.5;
+                  margin-bottom: 1.25rem;
+                }
+                
+                .ideal-answer {
+                  background: rgba(0, 0, 0, 0.2);
+                  padding: 1rem;
+                  border-radius: 0.5rem;
+                  border-left: 2px solid $primary;
+                  p { margin-bottom: 0; color: $text-muted; }
+                }
+              }
+            }
+          }
+        }
+      }
+
+      // -- Bottom Row --
+      .bottom-row {
+        .prep-card {
+          width: 100%;
+          position: relative;
+          border-top: 3px solid transparent;
+          background-image: linear-gradient($bg-card, $bg-card), linear-gradient(90deg, #fff, $primary, $bg-card);
+          background-origin: border-box;
+          background-clip: padding-box, border-box;
+          
+          .plan-stages {
+            display: flex;
+            gap: 2rem;
+            margin-top: 2rem;
+            
+            .stage {
+              flex: 1;
+              .stage-title {
+                font-size: 0.85rem;
+                letter-spacing: 1px;
+                color: $text-main;
+                margin-bottom: 1.5rem;
+                display: flex;
+                align-items: center;
+                gap: 0.5rem;
+                
+                .stage-num {
+                  font-size: 1.5rem;
+                  font-weight: 700;
+                  color: rgba(255, 255, 255, 0.2);
+                  font-style: italic;
+                }
+              }
+              
+              .task-box {
+                background: rgba(255, 255, 255, 0.03);
+                border: 1px solid rgba(255, 255, 255, 0.05);
+                border-radius: 0.5rem;
+                padding: 1rem;
+                margin-bottom: 1rem;
+                
+                h5 {
+                  font-size: 0.85rem;
+                  color: $primary;
+                  margin-bottom: 0.25rem;
+                }
+                p {
+                  font-size: 0.8rem;
+                  color: $text-muted;
+                  line-height: 1.4;
+                }
+              }
+            }
+          }
+          
+          .card-actions {
+            display: flex;
+            justify-content: center;
+            margin-top: 2rem;
+            
+            .arrow-btn {
+              display: flex;
+              align-items: center;
+              gap: 0.5rem;
+              font-weight: 500;
+              padding: 0.75rem 2rem;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@keyframes progress {
+  from { stroke-dasharray: 0, 100; }
+}

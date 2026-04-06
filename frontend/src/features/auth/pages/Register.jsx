@@ -13,11 +13,6 @@ function Register() {
       const success = await handleRegister({username,email,password});
       if(success) navigate("/");
     }  
-    if(loading){
-      return <main>
-          <h1>Loading...</h1>
-      </main>
-    }
   return (
 
     
@@ -37,7 +32,9 @@ function Register() {
               <label htmlFor="password">Password</label>
               <input onChange={(e)=>setPassword(e.target.value)} type="password" id="password" name="password" placeholder='Enter your password' />
             </div>
-            <button className='button primary-button'>Register</button>
+            <button className='button primary-button' disabled={loading}>
+              {loading ? "Loading..." : "Register"}
+            </button>
         </form>
         <p>Already have an account? <Link to="/login">Login</Link></p>
       </div>  

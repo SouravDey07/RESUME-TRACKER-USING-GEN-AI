@@ -57,7 +57,8 @@ const interviewReportSchema = {
                     }
                 }
             }
-        }
+        },
+        title: { type: Type.STRING, description: "Title" }
     }
 };
 
