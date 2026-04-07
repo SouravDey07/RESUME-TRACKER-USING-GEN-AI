@@ -11,14 +11,9 @@ const Index = () => {
             {/* Navbar */}
             <nav className="navbar">
                 <div className="navbar-logo">
-                    <h2>Luminous AI</h2>
+                    <h2>RESUME TRACKER</h2>
                 </div>
-                <div className="navbar-links">
-                    <a href="#platform">Platform</a>
-                    <a href="#solutions">Solutions</a>
-                    <a href="#resources">Resources</a>
-                    <a href="#pricing">Pricing</a>
-                </div>
+
                 <div className="navbar-actions">
                     <button className="btn-login" onClick={() => navigate('/login')}>Login</button>
                     <button className="btn-primary" onClick={() => navigate('/register')}>Sign Up</button>
@@ -153,7 +148,7 @@ const Index = () => {
                     <div className="feature-card flex-row">
                         <div className="content-left">
                             <h3>Scalable Interviewing</h3>
-                            <p>Deploy automated screening globally. Luminous AI supports 50+ languages with culturally aware evaluation models.</p>
+                            <p>Deploy automated screening globally. RESUME TRACKER supports 50+ languages with culturally aware evaluation models.</p>
                         </div>
                         <div className="content-right">
                             <div className="globe-icon">
@@ -173,7 +168,7 @@ const Index = () => {
                     <div className="quote-container">
                         <span className="tag">SUCCESS STORIES</span>
                         <blockquote>
-                            "Luminous AI didn't just help us hire faster; it helped us hire <span className="highlight-text">smarter.</span> The depth of the match score is unprecedented."
+                            "RESUME TRACKER didn't just help us hire faster; it helped us hire <span className="highlight-text">smarter.</span> The depth of the match score is unprecedented."
                         </blockquote>
                         <div className="author">
                             <strong>Sarah Jenkins</strong>
@@ -186,8 +181,8 @@ const Index = () => {
             {/* Footer */}
             <footer className="footer">
                 <div className="footer-brand">
-                    <h2>Luminous AI</h2>
-                    <p>© 2024 LUMINOUS AI, INC. | ALL RIGHTS RESERVED. PRECISION EVAL ENGINE™</p>
+                    <h2>RESUME TRACKER</h2>
+                    <p>© 2024 RESUME TRACKER | ALL RIGHTS RESERVED. PRECISION EVAL ENGINE™</p>
                 </div>
                 <div className="footer-links">
                     <a href="#privacy">PRIVACY POLICY</a>
